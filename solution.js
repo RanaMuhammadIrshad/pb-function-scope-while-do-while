@@ -1,25 +1,44 @@
 "use strict";
 /* * Write a function that accepts two numbers and validate that they are numbers.  */
 
-function numMessage(num1, num2) {
-  if (num1 === undefined) {
-    num1 = `The num1 (${num1}) is NOT NUMBER, add some NUMBER`;
-  } else {
-    num1 = `The num1 (${num1}) is NUMBER`;
-  }
-  console.log(num1);
-  if (num2 === undefined) {
-    num2 = `The num2 (${num2}) is NOT NUMBER, add some NUMBER`;
-  } else {
-    num2 = `The num2 (${num2}) is NUMBER`;
+
+function printExpVals (num1, num2) {
+  if ((typeof num1 !=='number')||(typeof num2 !== 'number')) {
+    console.log('Please use number');
   }
 
-  console.log(num2);
+  let expResult = 1;
+  let values = '';
+
+  for (let i = 0; i<num2; i++) {
+    expResult *= num1;
+    values += `${expResult}`
+  }
+
+  console.log(values);
 }
-/* Different cases */
-numMessage(2, 3);
-numMessage();
-numMessage(2);
+
+printExpVals (2)
+
+// function numMessage(num1, num2) {
+//   if (num1 === undefined) {
+//     num1 = `The num1 (${num1}) is NOT NUMBER, add some NUMBER`;
+//   } else {
+//     num1 = `The num1 (${num1}) is NUMBER`;
+//   }
+//   console.log(num1);
+//   if (num2 === undefined) {
+//     num2 = `The num2 (${num2}) is NOT NUMBER, add some NUMBER`;
+//   } else {
+//     num2 = `The num2 (${num2}) is NUMBER`;
+//   }
+
+//   console.log(num2);
+// }
+// /* Different cases */
+// numMessage(2, 3);
+// numMessage();
+// numMessage(2);
 console.log(`-----------------`);
 
 /* After that, the function should print _y_ exponential values starting from _x_.
@@ -60,9 +79,12 @@ console.log(`-----------------`);
 
 function exponent(num1, num2) {
   for (let i = 1; i <= num2; i++) {
-    let result = 0;
-    result = num1 ** i;
-    console.log(result);
+
+    let result = Math.pow(num1, i);
+    console.log(`${num1} ^ ${i} is ${result}`);
+    // let result = 0;
+    // result = num1 ** i;
+    // console.log(result);
   }
   /* console.log(result); */ // here result is outside of the the block which is FOR-loop block- if we try to access result outside of FOR-lop block. it is not accessible
 }
